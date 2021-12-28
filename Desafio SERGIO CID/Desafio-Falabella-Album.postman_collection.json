@@ -1,0 +1,90 @@
+{
+	"info": {
+		"_postman_id": "7b0f7f97-5936-40cc-943e-faee38d078fd",
+		"name": "Desafio-Falabella-Album",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET - Validar que trae 100 registro",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Validar que trae cantidad igual a 100\", () => {\r",
+							"  pm.expect(jsonData.length).to.equal(100);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/{{endPointAlbum}}",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"{{endPointAlbum}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET - Validar registro especifico de una collecion de JSON",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Validar que trae el objeto que le especificamos\", () => {\r",
+							"  pm.expect(jsonData[99].title).to.include(\"enim repellat iste\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/{{endPointAlbum}}",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"{{endPointAlbum}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

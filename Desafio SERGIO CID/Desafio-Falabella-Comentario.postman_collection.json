@@ -1,0 +1,74 @@
+{
+	"info": {
+		"_postman_id": "7e2172ae-54ba-4511-8e7c-c562b04044a8",
+		"name": "Desafio-Falabella-Comentario",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET - Consultar un comentario con numeros",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/{{endPointComentario}}/2",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"{{endPointComentario}}",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET - Consultar comentario con letras",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Validamos que el status sea 404 al consultar con letras\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/{{endPointComentario}}/1p",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"{{endPointComentario}}",
+						"1p"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

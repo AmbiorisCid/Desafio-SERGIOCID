@@ -1,0 +1,82 @@
+{
+	"info": {
+		"_postman_id": "c4feed5e-43b8-4b71-86c0-b5854a6385ab",
+		"name": "Desafio-Falabella-posts",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET - Validar respuesta especifica de una etiqueta",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json();\r",
+							"\r",
+							"\r",
+							"pm.test(\"Validar texto de la etiqueta\", () => {\r",
+							"  pm.expect(jsonData.title).to.include(\"qui est esse\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/{{endPointPost}}/2",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"{{endPointPost}}",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET - Validar cantidad de registros",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Validar que trae cantidad mayor que cero\", () => {\r",
+							"  pm.expect(jsonData.length).to.greaterThan(0);\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/{{endPointPost}}",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"{{endPointPost}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
